@@ -115,5 +115,6 @@ Represents the control character with value equal to the letter's character valu
 ***
 ## Author
 
-A short section about the author with a link to the author's GitHub profile 
+Cheik H BAGAGNAN
+GitHub profile 
 https://github.com/https://github.com/bchamidou
