@@ -1,4 +1,4 @@
-# Regex_tutorial
+# Regex Tutorial
 
 This assignment is to create a tutorial that explains how a specific regular expression, or regex, functions by breaking down each part of the expression and describing what it does. 
 
@@ -10,12 +10,13 @@ Whether you're a beginner looking to get started with regex or an experienced de
 
 Let's dive into the world of regular expressions and unlock their potential for text manipulation and pattern matching.
 
+***
 ## Summary
 
 Briefly summarize the regex you will be describing and what you will explain. Include a code snippet of the regex. Replace this text with your summary.
 
 we will focus on the regex pattern /^([A-Za-z]+)\s(\d+)$/. This regex pattern is designed to match and capture a specific format: a sequence of alphabetical characters followed by a space and then a sequence of digits. We will break down each component of this regex and explain its purpose..
-
+***
 ## Table of Contents
 
 - [Anchors](#anchors)
@@ -27,8 +28,9 @@ we will focus on the regex pattern /^([A-Za-z]+)\s(\d+)$/. This regex pattern is
 - [Flags](#flags)
 - [Character Escapes](#character-escapes)
 
+***
 ## Regex Components
-
+***
 ### Anchors
 
 The caret ^ and dollar $ characters have special meaning in a regexp. They are called “anchors”.
@@ -44,12 +46,14 @@ we will define what everything inside the parentheses later in this tutorial, bu
 .([a-z\.]{2,6})$.
 So, it must start and end with the given parameters within the code. If it does not, then it is not a match.
 
+***
 ### Quantifiers
 
 A quantifier is used to determine how many times a specific character or group of characters needs to be present in order to have a match. 
 For instance,this regex includes the quantifier + means that it has to contain at least one of this in order to have a match.The + operator will connect the users email name + email service + .com ,the following quantifier {2,6} will allow a match range of 2-6 characters for the character set of [a-z\.].
 This ([a-z0-9_\.-]+) will match any string that contains a-z, 0-9,_,.,or -. 
 
+***
 ### Grouping Constructs
 
 Contininuing with the code for matching an email:
@@ -62,10 +66,12 @@ Then lastly, capture group #3 is ([a-z\.]{2,6}) to capture the .com.
 
 When matching, we have to make sure we are following the guidelines of the group before moving on to the next group
 
+***
 ### Bracket Expressions
 
 Bracked expressios for email validation includes the character sets of [a-z0-9_\.-], which is matching any letter a-z and is case senstive. It also matches a character 0-9 and matches the characters "_" , "-" , and "."; [\da-z\.-], which is matching a single digit from 0-9, any character a-z (case senstive), and the characters "." and "-".; [a-z\.] matches any character a-z(case senstive) and the character ".".
 
+***
 ### Character Classes
 
 we can find and remove anything that’s not a number. Character classes can help with that.
@@ -73,12 +79,14 @@ A character class is a special notation that matches any symbol from a certain s
 For the start, let’s explore the “digit” class. It’s written as \d and corresponds to “any single digit”.
 \d is present in the given matching email code and what it will match a single letter character, a-z, after the @ sign in the email address. Basically ensuring that a letter is matched after the @ in the email and not a number or special character.
 
+***
 ### The OR Operator
 
 This is a regex for matching a hex code that uses the OR Operator. What this will do is it will match where it starts with the # and that has to come first followed by one of the following:
 
 [a-z\.]{2,6} Matches any character from a-z but the length range must between 2 to 6.
 
+***
 ### Flags
 
 A regex flag is not used in the matching email code that is being used for this tutorial. A regular expression typically comes in the form: /regex/
@@ -93,6 +101,7 @@ i which stands for "insensitive" will make the regular expression case-insensiti
 
 s Enables “dotall” mode, that allows a dot . to match newline character \n (covered in the chapter Character classes).
 
+***
 ### Character Escapes
 
 A character escape represents a character that may not be able to be conveniently represented in its literal form.
@@ -103,6 +112,7 @@ Character escapes are useful when you want to match a character that is not easi
 \c followed by a letter from A to Z or a to z
 Represents the control character with value equal to the letter's character value modulo 32.
 
+***
 ## Author
 
 A short section about the author with a link to the author's GitHub profile 
