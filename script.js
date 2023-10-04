@@ -1,24 +1,29 @@
 
-// const tocLinks = document.querySelectorAll('nav a');
+ 
 const sections = [
+
     "introduction",
     "regex-summary",
-    "anchors-and-start",
-    "username-capture",
-    "domain-capture",
-    "end-of-line",
-    "about-author"
+    "anchors",
+    "quantifiers",
+    "grouping-constructs",
+    "bracket-expressions",
+    "about-author",
+    "character-classes",
+    "the-or-operator",
+    "flags",
+    "character-escapes",
 ];
 
 let currentSectionIndex = 0;
 
 function showSection(index) {
-    // Hide all sections
+  
     sections.forEach(section => {
         document.getElementById(section).style.display = "none";
     });
 
-    // Show the selected section
+   
     document.getElementById(sections[index]).style.display = "block";
 }
 
@@ -40,12 +45,12 @@ function highlightRegex() {
         setTimeout(() => {
             regexExplanation.textContent = step;
             highlightRegexPart(index);
-        }, index * 2000); // Delay each step for 2 seconds
+        }, index * 2000);  
     });
 
     setTimeout(() => {
         regexExplanation.textContent = "";
-        highlightRegexPart(-1); // Remove highlighting
+        highlightRegexPart(-1);  
     }, explanation.length * 2000);
 }
 
@@ -56,12 +61,11 @@ function highlightRegexPart(index) {
     const matchedText = inputText.match(regexPattern);
 
     if (matchedText && matchedText.length >= 3) {
-        const [_, username, domain] = matchedText; // Ignore the first element, which is the whole match
+        const [_, username, domain] = matchedText; 
         const regexExplanation = document.getElementById("regex-explanation");
         const highlightedText = inputText.replace(username, `<span class="highlight">${username}</span>`);
         regexExplanation.innerHTML = `Explanation: ${highlightedText} is a valid email address.`;
     } else {
-        // If there's no match, remove highlighting
         const regexExplanation = document.getElementById("regex-explanation");
         regexExplanation.innerHTML = "";
     }
@@ -76,18 +80,5 @@ document.getElementById("prev-button").addEventListener("click", () => {
     currentSectionIndex = Math.max(currentSectionIndex - 1, 0);
     showSection(currentSectionIndex);
 });
-
+ 
 showSection(currentSectionIndex);
-
-// tocLinks.forEach((link) => {
-//     link.addEventListener('click', (e) => {
-//         e.preventDefault();
-//         const targetId = link.getAttribute('href').substring(1);
-//         const targetElement = document.getElementById(targetId);
-//         if (targetElement) {
-//             targetElement.scrollIntoView({
-//                 behavior: 'smooth'
-//             });
-//         }
-//     });
-// });
