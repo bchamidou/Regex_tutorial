@@ -18,8 +18,6 @@ Understanding regular expressions is essential for web developers, data analysts
 - [Contact](#contact)
 - [License](#license)
 
-
-##Installation
 ***
 
 The installation can be completed by following these instructions:
@@ -41,8 +39,7 @@ Github gist Regex tutorial
 
 I  utilized several coding website for help, including STackOverflow, w#schools.com, …. I also watched YouTube video tutorials and the course resources.
 
-Any developers who are interested in contributing ideas for this application must agree to follow and comply with the Contributor Covetnant: Code of Conduct.
-The Contributor Covenant Code of Conduct can be found in the following address:
+Any developers who are interested in contributing ideas for this application must agree to follow and comply with the Contributor Covetnant: Code of Conduct. 
  
  
 ## Contats
