@@ -11,41 +11,33 @@
         <h1>Regex Tutorial</h1>
         <p>Learn about Regular Expressions</p>
     </header>
-<!-- 
-    <nav>
-        <h2>Table of Contents</h2>
-        <ul>
-            <li><a href="#introduction">Introduction</a></li>
-            <li><a href="#summary">Summary</a></li>
-            
-            <li><a href="#anchors-and-start">Anchors and Start of Line</a></li>
-            <li><a href="#username-capture">Username Capture</a></li>
-            <li><a href="#domain-capture">Domain Capture</a></li>
-            <li><a href="#end-of-line">End of Line</a></li>
-            <li><a href="#about-author">About the Author</a></li>
-            
-            <li><a href="#example">Example</a></li>
-            <li><a href="#author">About the Author</a></li>
-        </ul>
-    </nav> -->
 
     <main>
         <section id="introduction">
             <h2>Introduction</h2>
           <p>Regular expressions, commonly referred to as regex or regexp, are powerful tools used in text processing and pattern matching. They provide a concise and flexible way to search, validate, and manipulate text based on specific patterns.</p>
+         
           <p>Understanding regular expressions is essential for web developers, data analysts, and anyone working with textual data. In this tutorial, we will explore the fundamental concepts of regex and how to use them effectively.</p>
+          
           <p>Whether you're a beginner looking to get started with regex or an experienced developer aiming to deepen your knowledge, this tutorial will guide you through the key concepts and practical examples.</p>
+         
           <p>Let's dive into the world of regular expressions and unlock their potential for text manipulation and pattern matching.</p>
         </section>
 
         <section id="summary">
             <h2>Summary</h2>
-            <p>we will focus on the regex pattern /^([A-Za-z]+)\s(\d+)$/. This regex pattern is designed to match and capture a specific format: a sequence of alphabetical characters followed by a space and then a sequence of digits. We will break down each component of this regex and explain its purpose..</p>
+            <p>Briefly summarize the regex you will be describing and what you will explain. Include a code snippet of the regex. Replace this text with your summary.
+
+                We will focus on the regex pattern code for matching an email:
+                
+                /^([a-z0-9_\.-]+)@([\da-z\.-]+)\.([a-z\.]{2,6})$/
+                
+                This regex pattern is designed to match and capture a specific format: a sequence of alphabetical characters followed by a space and then a sequence of digits. We will break down each component of this regex and explain its purpose..</p>
         </section>
         <section id="table-of-contents">
             <h2>Table of Contents</h2>
             <ul>
-                <li><a href="#anchors">Anchors and Start of Line</a></li>
+                <li><a href="#anchors">Anchors</a></li>
                 <li><a href="#quantifiers">Quantifiers</a></li>
                 <li><a href="#grouping-constructs">Grouping Constructs</a></li>
                 <li><a href="#bracket-expressions">Bracket Expressions</a></li>
@@ -59,7 +51,7 @@
         </section>
 
         <section id="anchors">
-            <h2>Anchors and Start of Line</h2>
+            <h2>Anchors</h2>
 
             <p> The anchor  is what starts and ends the regular expression. In the matching email code,</p>
             
@@ -78,107 +70,104 @@
 
         <section id="quantifiers">
             <h2>Quantifiers</h2>
-            <p> A quantifier is used to determine how many times a specific character or group of characters needs to be present in order to have a match. For instance, if we used the following code in our regex, xyz+ then this will match any string xy followed by at least one z. So, if we look at our code for matching the email:</p>
-
-            <code>([a-z0-9_\.-]+)</code>
+            <p> A quantifier is used to determine how many times a specific character or group of characters needs to be present in order to have a match. </p>
+            
+            <p>For instance, this regex includes the quantifier <code>"+"</code> means that it has to contain at least one of this in order to have a match.
+                The <code>"+"</code> operator will connect the users email name + email service + .com, the following quantifier <code>{2,6}</code> will allow a match range of 2-6 characters for the character set of <code>[a-z\.]</code>.</p>
+           
+            <p>This <code>([a-z0-9_\.-]+)</code> will match any string that contains <code>a-z, 0-9,_,.,or - </code>. </p>
             
             <p> this will match any string that contains <code>a-z</code>, <code>0-9</code>,<code>_</code>,<code>.</code>,<code>or -</code>. The quantifier + means that it has to contain at least one of this in order to have a match.</p>
         </section>
 
         <section id="grouping-constructs">
             <h2>Grouping Constructs</h2>
-            <p> Contininuing with the code for matching an email:</p>
+            <p> Contininuing with the code for matching an email:
 
-            <code>/^([a-z0-9_\.-]+)@([\da-z\.-]+)\.([a-z\.]{2,6})$/</code>
-
-            <p>  We can talk about grouping and capturing.</p>
-
-            <p> <code>([a-z0-9_\.-]+)</code> is the first group that appears in our regex. This must be true before moving on to "match" the next part of the code. ([\da-z\.-]+) is the second group that appears in our regex. ([a-z\.]{2,6}) is the third group that appears in our regex.</p>
-
-            <p>  When matching, we have to make sure we are following the guidelines of the group before moving on to the next group</p>
+                <code> /^([a-z0-9_\.-]+)@([\da-z\.-]+)\.([a-z\.]{2,6})$/</code>
+     
+                <p>Capturing group #1 in this expression is <code>([a-z0-9_\.-]+)</code> that matches the user email name.</p>
+                
+                <p>The second capturing group #2 is <code>([\da-z\.-]+)</code> which will match the email service.</p>
+                
+                <p>Then lastly, capture group #3 is <code>([a-z\.]{2,6})</code> to capture the .com.
+               
+                <p> The guidelines for matching the group. For this code snippet, it can contain letters a-z, numbers 0-9, an underscore, hyphen, or period.</p>
+               
+                <p>  The period is an escaped character, so it required the backslash in order to be able to be matched.</p>
+                
+                <p>When matching, we have to make sure we are following the guidelines of the group before moving on to the next group</p>
         </section>
 
         <section id="bracket-expressions">
             <h2>Bracket Expressions</h2>
-            <p> Contininuing with the code for matching an email:
-
-            <code> /^([a-z0-9_\.-]+)@([\da-z\.-]+)\.([a-z\.]{2,6})$/</code>
-
-            <p> We can talk about grouping and capturing.</p>
-
-            <code>[a-z0-9_\.-]</code>
-
-            <p> The guidelines for matching the group. For this code snippet, it can contain letters a-z, numbers 0-9, an underscore, hyphen, or period.</p>
-
-            <p>  The period is an escaped character, so it required the backslash in order to be able to be matched.</p>
+           <p>Bracked expressios for email validation includes the character sets of <code>[a-z0-9_\.-]</code>, which is matching any letter a-z and is case senstive. 
+           
+            It also matches a character 0-9 and matches the characters <code>"_"``, <code>"-"</code>, and <code>"."</code>; <code>[\da-z\.-]</code>,
+           
+            which is matching a single digit from 0-9, any character a-z (case senstive), and the characters <code>"."</code> and <code>"-".</code>; <code>[a-z\.]</code>
+            matches any character ``a-z``(case senstive) and the character <code>"."</code>.</p> 
+            
         </section>
         <section id="character-classes">
             <h2>Character Classes</h2>
-            <p>  \d is present in the given matching email code and what it will match a single letter character, a-z, after the @ sign in the email address. Basically ensuring that a letter is matched after the @ in the email and not a number or special character.</p>
+            <p>We can find and remove anything that’s not a number. Character classes can help with that.
+              
+               A character class is a special notation that matches any symbol from a certain set.
+               
+               For the start, let’s explore the “digit” class. It’s written as <code>\d</code>and corresponds to “any single digit”.</p>
+            
+            <p><code>\d</code> is present in the given matching email code and what it will match a single letter character, <code>a-z</code>, after the <code>@</code>sign in the email address. 
+               
+                Basically ensuring that a letter is matched after the ``@`` in the email and not a number or special character.</p>
         </section>
         <section id="the-or-operator">
             <h2>The OR Operator</h2>
+
             <p>  It is not present in the code for the given matching email code, but in order to talk about the OR Operator, we will look at the following code for matching a hex code.</p>
 
             <code>/^#?([a-f0-9]{6}|[a-f0-9]{3})$/</code>
 
-            <p> This is a regex for matching a hex code that uses the OR Operator. What this will do is it will match where it starts with the # and that has to come first followed by one of the following:</p>
-
-            <p> <code>[a-f0-9]{6}</code> which will match a 6 character long string that contains a combination of a-f letters and 0-9 numbers.</p>
-
-            <code>| OR Operator</code>
-
-            <p><code>[a-f0-9]{3}</code> it will match a 3 character long string that contains a combination of a-f letters and 0-9 numbers.</p>
-
-
+            <p> The next component we will be discussing is the <code>"or"</code> operator. The <code>"or"</code> operator within a regular expression is defined using the <code>|</code> element. 
+               
+                The or operator indicates that it could either of the components that we are separating with the <code>|</code>. 
+               
+                For our hex value regular expression we have <code>([a-f0-9]{6}|[a-f0-9]{3})</code>. Note the or operator separating these 2 components. 
+               
+                This means that our hex value could either be 6 characters <code>[a-f0-9]{6}</code>> or 3 characters <code>[a-f0-9]{3}</code>.</p>
         </section>
         <section id="flags">
             <h2>Flags</h2>
             <p>  A regex flag is not used in the matching email code that is being used for this tutorial. A regular expression typically comes in the form:
+                <code>/regex/</code> </p>
 
-            <code>/regex/</code>
-            
-            <p>  Where the slashes denote where the regular expresssion starts and ends. A flag can be used after the slash to give more guidelines for our matching. The flags are:</p>
-            
-            <p> g which stands for "global" which will allow for matching all the instances within a string that follow the matching guidelines set in the regular expression.</p>
-            <p> m which stands for "multiline" which will search line by line rather than searching through a string as a whole.</p>
-            <p>  i which stands for "insensitive" will make the regular expression case-insensitive, so capitals and lower-case letters will not deture the matching.</p>
+            <p> Where the slashes denote where the regular expresssion starts and ends. A flag can be used after the slash to give more guidelines for our matching. The flags are:</p>
+                
+            <p> <code>g</code> which stands for "global" which will allow for matching all the instances within a string that follow the matching guidelines set in the regular expression.</p>
+                
+            <p> <code>m</code> which stands for "multiline" which will search line by line rather than searching through a string as a whole.</p>
+                
+            <p> <code>i</code> which stands for "insensitive" will make the regular expression case-insensitive, so capitals and lower-case letters will not deture the matching.</p>
+                
+            <p> <code>s</code> Enables “dotall” mode, that allows a dot . to match newline character \n (covered in the chapter Character classes).</p>
         </section>
         <section id="character-escapes">
             <h2>Character Escapes</h2>
-            As we’ve seen, a backslash \ is used to denote character classes, e.g. \d. So it’s a special character in regexps (just like in regular strings).
-
-            There are other special characters as well, that have special meaning in a regexp, such as [ ] { } ( ) \ ^ $ . | ? * +. They are used to do more powerful searches.
+            <p>A character escape represents a character that may not be able to be conveniently represented in its literal form.</p>
             
-            Don’t try to remember the list – soon we’ll deal with each of them, and you’ll know them by heart automatically.
+            <p>Character escapes are useful when you want to match a character that is not easily represented in its literal form. </p> 
+            <code>\d</code>,  
+           
+            <p>There are other special characters as well, that have special meaning in a regexp, such as <code>[ ] { } ( ) \ ^ $ . | ? * + </code> They are used to do more powerful searches.</p>
         </section>
         
-        <section id="example">
-            <h2>Example</h2>
-            <p> A more detailed explanation for each component of the regex pattern /^([A-Za-z]+)\s(\d+)$/:</p>
-            <p>Anchors '^' and '$'
-                Explanation: Anchors are used to specify where a match should begin and end within a line of text.</p>
-
-            <p>Character Classes [A-Za-z] and \d
-                Explanation: Character classes are used to define a set of characters that you want to match in a particular position of the text.</p>
-
-            <p>Quantifiers '+'
-                Explanation: Quantifiers are used to specify how many times a character or character class should occur in the text.</p>
-
-            <p>Capture Groups (...)
-                (...) creates a group to capture specific parts of the pattern. For example, ([A-Za-z]+) captures one or more letters.</p>
-            
-            <p>For example, if you had a list of people's names followed by their ages on separate lines, this regex could help you capture and separate the names and ages from each line.</p>
-        </section>
     </main>
 
     <footer>
         <section id="author">
             <h2>About the Author</h2>
-            <p>Information about the author and a link to their GitHub profile.</p>
-            <a href="https://github.com/https://github.com/bchamidou">Author's GitHub Profile</a>
-            <a href="https://github.com/https://github.com/bchamidou">Author's GitHub Profile</a>
-            <a href="https://github.com/https://github.com/bchamidou">Author's GitHub Profile</a>
+            <p>Cheik H BAGAGNAN</p> 
+            <a href="https://github.com/https://github.com/bchamidou">My GitHub Profile</a> 
 
         </section>
     </footer>
